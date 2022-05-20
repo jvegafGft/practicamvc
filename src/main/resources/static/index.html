@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Practica MVC</title>
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+</head>
+<body>
+
+<h1>Spring MVC Practice</h1>
+
+<p>Hi, write your name here</p>
+
+<div>
+    <input id="input_name" name="inputname" type="text">
+</div>
+
+<script>
+
+  const inputName = document.getElementById('input_name')
+
+  window.onload = () => inputName.focus()
+
+  inputName.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      const name = inputName.value
+      if (name.length < 1) {
+        window.location.href = '/greeting'
+        return
+      }
+      const url            = '/greeting?name=' + name
+      window.location.href = url
+    }
+  })
+
+</script>
+
+</body>
+</html>
